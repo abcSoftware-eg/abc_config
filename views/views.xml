@@ -1,0 +1,99 @@
+<odoo>
+  <data>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.crm</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="5"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="ABC" string="ABC" data-key="abc_config" >
+                    <h2>ABC</h2>
+                    <div class="row mt16 o_settings_container" name="qualification_setting_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="abc"
+                            title="Use leads if you need a qualification step before creating an opportunity or a customer. It can be a business card you received, a contact form filled in your website, or a file of unqualified prospects you import, etc. Once qualified, the lead can be converted into a business opportunity and/or a new customer in your address book.">
+                            <div class="">
+                                <!--o_setting_left_pane-->
+                                <field name="abc_field"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+<!--
+    <record id="crm_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'crm', 'bin_size': False}</field>
+    </record>-->
+<!--
+
+    <record id="crm_config_settings_menu" model="ir.ui.menu">
+        <field name="action" ref="crm.crm_config_settings_action"/>
+    </record>
+-->
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="abc_config.list">
+      <field name="name">abc_config list</field>
+      <field name="model">abc_config.abc_config</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="abc_config.action_window">
+      <field name="name">abc_config window</field>
+      <field name="res_model">abc_config.abc_config</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="abc_config.action_server">
+      <field name="name">abc_config server</field>
+      <field name="model_id" ref="model_abc_config_abc_config"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="abc_config" id="abc_config.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="abc_config.menu_1" parent="abc_config.menu_root"/>
+    <menuitem name="Menu 2" id="abc_config.menu_2" parent="abc_config.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="abc_config.menu_1_list" parent="abc_config.menu_1"
+              action="abc_config.action_window"/>
+    <menuitem name="Server to list" id="abc_config" parent="abc_config.menu_2"
+              action="abc_config.action_server"/>
+-->
+  </data>
+</odoo>
